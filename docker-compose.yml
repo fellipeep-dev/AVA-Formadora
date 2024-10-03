@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - '5433:5432'
+    environment:
+      POSTGRES_USER: dbtestUser
+      POSTGRES_PASSWORD: dbtestPass
+      POSTGRES_DB: Test
+    volumes:
+      - db_data_test:/var/lib/postgresql/data
+
+volumes:
+  db_data_test:
+    driver: local
