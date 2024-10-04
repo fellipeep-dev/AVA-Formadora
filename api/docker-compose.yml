@@ -3,14 +3,14 @@ services:
     image: postgres
     restart: always
     ports:
-      - '5433:5432'
+      - '5434:5432'
     environment:
       POSTGRES_USER: dbtestUser
       POSTGRES_PASSWORD: dbtestPass
       POSTGRES_DB: Test
     volumes:
-      - db_data_test:/var/lib/postgresql/data
+      - db_data_form:/var/lib/postgresql/data
 
 volumes:
-  db_data_test:
+  db_data_form:
     driver: local
