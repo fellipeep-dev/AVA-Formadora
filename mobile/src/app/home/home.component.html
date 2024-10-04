@@ -1,0 +1,29 @@
+<ion-content class="w-full h-full">
+  
+  <img
+    src="assets/image-2.jpg"
+    class="object-fill w-full h-full absolute"
+    alt="homem malhando academia"
+  />
+  <div class="flex flex-col place-content-end h-full w-full">
+    <div class="backdrop-blur-md p-8 rounded-2xl bg-opacity-60 bg-black m-auto border">
+      <div class="flex flex-col items-center">
+        <p class="flex items-center text-4xl font-bold">
+          <span class="text-yellow-400">Fit</span>Planner<ion-icon name="barbell" class="ml-1"></ion-icon>
+        </p>
+        <div class="flex flex-col items-center  text-sm space-y-4 mt-8">
+          <span
+          [routerLink]="['/login']"
+            class="rounded-2xl border p-2 active:text-yellow-400 active:border-yellow-500"
+            >Opa, já tem uma conta? Faça login para continuar.</span
+          >
+          <span
+          [routerLink]="['/sign-up']"
+            class="rounded-2xl border p-2 active:text-yellow-400 active:border-yellow-500"
+            >Novo por aqui? Crie uma conta e comece a treinar!</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
