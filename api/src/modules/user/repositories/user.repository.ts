@@ -13,6 +13,15 @@ export class UserRepository extends RepositoryFactory<
     super('user');
   }
 
+  create(data: CreateUserDto): Promise<UserEntity> {
+    return this.prismaService.user.create({
+      data: {
+        ...data,
+        birthDate: new Date(data.birthDate),
+      },
+    });
+  }
+
   findAll() {
     return this.prismaService.user.findMany();
   }
