@@ -20,9 +20,9 @@ export class CreateUserDto {
 
   @IsString()
   @IsNotEmpty()
-  heigth: string;
+  height: string;
 
   @IsString()
   @IsNotEmpty()
-  weigth: string;
+  weight: string;
 }

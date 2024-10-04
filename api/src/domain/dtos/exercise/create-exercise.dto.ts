@@ -1,6 +1,10 @@
 import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class CreateExerciseDto {
+  @IsNumber()
+  @IsNotEmpty()
+  userId: number
+
   @IsString()
   @IsNotEmpty()
   name: string;
@@ -11,9 +15,9 @@ export class CreateExerciseDto {
 
   @IsNumber()
   @IsNotEmpty()
-  series: number;
+  series: string;
 
   @IsNumber()
   @IsNotEmpty()
-  repetitions: number;
+  repetitions: string;
 }

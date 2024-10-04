@@ -73,7 +73,7 @@ export class LoginComponent {
           console.error(error);
           this.toast.setToast({
             label: 'Erro ao fazer login!',
-            icon: 'closeCicle',
+            icon: 'close-cicle',
             color: 'danger',
           });
         },

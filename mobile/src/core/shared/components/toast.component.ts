@@ -6,8 +6,8 @@ import { checkbox, closeCircle, informationCircle } from 'ionicons/icons';
 
 interface ToastInterface {
   label: string;
-  icon: 'closeCicle' | 'checkbox' | 'informationCircle';
-  color: 'success' | 'danger' | 'info';
+  icon: 'close-cicle' | 'checkbox' | 'information-circle';
+  color: 'success' | 'danger' | 'secondary' | string;
   isNotification?: boolean
   handle?: () => void;
 }

@@ -22,7 +22,7 @@ export class ExerciseService
     return data;
   }
 
-  async findByUserId(id: number): Promise<ExerciseEntity> {
+  async findByUserId(id: number): Promise<ExerciseEntity[]> {
     const exercise = await this.exerciseRepository.findByUserId(id);
 
     return exercise;

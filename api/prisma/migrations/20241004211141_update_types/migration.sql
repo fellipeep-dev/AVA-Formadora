@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "exercises" ALTER COLUMN "series" SET DATA TYPE TEXT,
+ALTER COLUMN "repetitions" SET DATA TYPE TEXT;

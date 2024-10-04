@@ -28,7 +28,7 @@ export class ExerciseController {
   }
 
   @Get(':id')
-  findByUserId(@Param('id') id: number): Promise<ExerciseEntity> {
+  findByUserId(@Param('id') id: number): Promise<ExerciseEntity[]> {
     return this.exerciseService.findByUserId(id);
   }
 

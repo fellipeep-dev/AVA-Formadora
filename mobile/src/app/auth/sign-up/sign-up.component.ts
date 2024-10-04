@@ -11,12 +11,16 @@ import {
   IonButton,
   IonButtons,
   IonContent,
+  IonDatetime,
+  IonDatetimeButton,
   IonFab,
   IonFabButton,
   IonHeader,
   IonIcon,
   IonInput,
   IonItem,
+  IonLabel,
+  IonModal,
   IonTabButton,
   IonText,
   IonToolbar,
@@ -31,6 +35,7 @@ import { ToastComponent } from 'src/core/shared/components/toast.component';
   selector: 'sign-up-component',
   templateUrl: './sign-up.component.html',
   imports: [
+    IonModal,
     IonFab,
     IonFabButton,
     IonHeader,
@@ -45,6 +50,9 @@ import { ToastComponent } from 'src/core/shared/components/toast.component';
     ReactiveFormsModule,
     IonItem,
     IonIcon,
+    IonDatetime,
+    IonDatetimeButton,
+    IonLabel
   ],
 })
 export class SignUpComponent implements OnInit {
@@ -63,7 +71,7 @@ export class SignUpComponent implements OnInit {
       name: ['', [Validators.required]],
       email: ['', [Validators.email, Validators.required]],
       password: ['', [Validators.required]],
-      birthdate: ['', [Validators.required]],
+      birthDate: ['', [Validators.required]],
       height: ['', [Validators.required]],
       weight: ['', [Validators.required]],
     });
@@ -71,7 +79,10 @@ export class SignUpComponent implements OnInit {
 
   nextStep() {
     if (this.signUp.valid) {
-      this.authService.postData('user', this.signUp.value).subscribe({
+      const formData = { ...this.signUp.value }; // Clonando os valores do form
+      formData.birthDate = new Date(formData.birthDate).toISOString()
+
+      this.authService.create(formData).subscribe({
         next: (response) => {
           console.log(response);
           this.toast.setToast({
@@ -79,13 +90,13 @@ export class SignUpComponent implements OnInit {
             icon: 'checkbox',
             color: 'success',
           });
-          this.router.navigate(['/login']);
+          this.router.navigate(['/']);
         },
         error: (error) => {
           console.error(error);
           this.toast.setToast({
             label: 'Erro ao fazer cadastro!',
-            icon: 'closeCicle',
+            icon: 'close-cicle',
             color: 'danger',
           });
         },

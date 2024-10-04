@@ -18,8 +18,8 @@ export class ExerciseRepository extends RepositoryFactory<
   }
 
   findByUserId(id: number) {
-    return this.prismaService.exercise.findFirst({
-      where: { userId: id },
+    return this.prismaService.exercise.findMany({
+      where: { userId: +id },
     });
   }
 }

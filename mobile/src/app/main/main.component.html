@@ -1,0 +1,92 @@
+<app-header></app-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="workouts.length == 0">Você ainda não tem treinos</div>
+  <div *ngFor="let workout of workouts" ngIf="workouts">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ workout.name }}</ion-card-title>
+        <ion-card-subtitle>Carga: {{workout.weight}} Series: {{workout.series}}x{{workout.repetitions}}</ion-card-subtitle>
+      </ion-card-header>
+      <!-- <ion-card-content> Dias da semana: Segunda e Quarta </ion-card-content> -->
+    </ion-card>
+  </div>
+
+  <ion-fab class="absolute bottom-10 right-5" id="open-modal">
+    <ion-fab-button color="warning">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-modal trigger="open-modal">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Voltar</ion-button>
+          </ion-buttons>
+          <ion-title>Treino</ion-title>
+          <!-- <ion-buttons slot="end">
+            <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+          </ion-buttons> -->
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <form
+          [formGroup]="workoutForm"
+          class="flex flex-col items-center text-sm space-y-4 mt-8"
+        >
+          <ion-item>
+            <ion-input
+              label="Treino"
+              labelPlacement="stacked"
+              type="text"
+              placeholder="Ex: 'Treino de Perna'"
+              formControlName="name"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input
+              label="Carga"
+              labelPlacement="stacked"
+              type="text"
+              placeholder="Ex:'25kg'"
+              formControlName="weight"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input
+              label="Series"
+              labelPlacement="stacked"
+              type="text"
+              placeholder="Numero de séries do treino"
+              formControlName="series"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input
+              label="Repetições"
+              labelPlacement="stacked"
+              type="text"
+              placeholder="Numero de repetições do treino"
+              formControlName="repetitions"
+            ></ion-input>
+          </ion-item>
+          <footer
+            class="flex justify-end border border-black font-bold rounded-xl bg-yellow-400 text-black"
+          >
+            <button
+              shape="round"
+              class="max-w-fit flex items-center p-2"
+              type="submit"
+              (click)="addWorkout()"
+              [disabled]="workoutForm.invalid"
+            >
+              Cadastrar <ion-icon name="add"></ion-icon>
+            </button>
+          </footer>
+        </form>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

@@ -6,6 +6,6 @@ export class UserEntity implements User {
   email: string;
   birthDate: Date;
   password: string;
-  heigth: string;
-  weigth: string;
+  height: string;
+  weight: string;
 }

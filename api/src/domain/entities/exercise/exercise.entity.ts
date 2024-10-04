@@ -5,6 +5,6 @@ export class ExerciseEntity implements Exercise {
   userId: number;
   name: string;
   weight: string;
-  series: number;
-  repetitions: number;
+  series: string;
+  repetitions: string;
 }
