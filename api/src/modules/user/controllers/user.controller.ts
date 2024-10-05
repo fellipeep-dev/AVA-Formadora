@@ -22,8 +22,7 @@ export class UserController {
 
   @Post('/login')
   login(
-    @Body() email: string,
-    password: string,
+    @Body() { email, password },
   ): Promise<{ verify: boolean; userId?: number }> {
     return this.userService.login(email, password);
   }
