@@ -1,8 +1,8 @@
 <app-header></app-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" *ngIf="workouts">
   <div *ngIf="workouts.length == 0">Você ainda não tem treinos</div>
-  <div *ngFor="let workout of workouts" ngIf="workouts">
+  <div *ngFor="let workout of workouts">
     <ion-card>
       <ion-card-header>
         <ion-card-title>{{ workout.name }}</ion-card-title>

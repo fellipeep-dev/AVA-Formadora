@@ -74,7 +74,7 @@ export class HeaderComponent {
       icon: "information-circle"
     })
     this.authService.logout()
-    this.router.navigate([''])
+    this.router.navigate(['/begin'])
   }
 
   items = menuHeader;
