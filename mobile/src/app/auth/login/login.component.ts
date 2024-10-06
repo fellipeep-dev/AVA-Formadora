@@ -59,7 +59,7 @@ export class LoginComponent {
 
   nextStep() {
     if (this.login.valid) {
-      this.authService.postData('user/login', this.login.value).subscribe({
+      this.authService.login(this.login.value).subscribe({
         next: (response) => {
           console.log(response);
           this.toast.setToast({

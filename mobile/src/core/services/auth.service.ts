@@ -15,7 +15,7 @@ export class AuthService extends ApiServiceFactory<AuthInterface> {
   }
   login(data: Pick<UserInterface, 'email' | 'password'>) {
     return this.http
-      .post<UserInterface>(`${this.baseUrl}/user/auth`, data)
+      .post<UserInterface>(`${this.baseUrl}/user/login`, data)
       .pipe(
         tap((response) => {
           localStorage.setItem('user', JSON.stringify(response.id!));

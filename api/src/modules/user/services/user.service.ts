@@ -19,10 +19,10 @@ export class UserService
   async login(
     email: string,
     password: string,
-  ): Promise<{ verify: boolean; userId?: number }> {
+  ): Promise<{ verify: boolean; id?: number }> {
     const user = await this.userRepository.findByEmail(email);
 
-    if ((user.password = password)) return { verify: true, userId: user.id };
+    if ((user.password = password)) return { verify: true, id: user.id };
 
     return { verify: false };
   }

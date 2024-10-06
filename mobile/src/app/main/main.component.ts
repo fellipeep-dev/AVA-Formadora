@@ -33,6 +33,7 @@ import {
 } from '@angular/forms';
 import { ToastComponent } from 'src/core/shared/components/toast.component';
 import { NgFor, NgIf } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -68,7 +69,8 @@ export class MainComponent implements OnInit {
   constructor(
     private workoutService: WorkoutService,
     private fb: FormBuilder,
-    private toast: ToastComponent
+    private toast: ToastComponent,
+    private router: Router,
   ) {
     addIcons({ add });
   }
@@ -82,6 +84,8 @@ export class MainComponent implements OnInit {
   }
   cancel() {
     this.modal.dismiss(null, 'cancel');
+    this.router.navigate(['/'])
+
   }
 
   addWorkout() {

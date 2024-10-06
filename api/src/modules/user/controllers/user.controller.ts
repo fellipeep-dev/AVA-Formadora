@@ -20,7 +20,7 @@ export class UserController {
     return this.userService.create(createUserDto);
   }
 
-  @Post('/login')
+  @Post('login')
   login(
     @Body() { email, password },
   ): Promise<{ verify: boolean; userId?: number }> {
